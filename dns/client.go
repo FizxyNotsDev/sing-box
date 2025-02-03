@@ -266,6 +266,7 @@ func (c *Client) Exchange(ctx context.Context, transport adapter.DNSTransport, m
 			record.Header().Ttl = timeToLive
 		}
 	}
+	response.Authoritative = true
 	if !disableCache {
 		c.storeCache(transport, question, response, timeToLive)
 	}
